@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="vi">
 <head>
   <meta charset="UTF-8" />
@@ -73,6 +73,21 @@
       from {opacity: 0; transform: translateY(20px);}
       to {opacity: 1; transform: translateY(0);}
     }
+
+    /* Nút nhạc */
+    #toggleMusic {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 999;
+      padding: 10px 15px;
+      background-color: #ffd700;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+      color: black;
+    }
   </style>
 </head>
 <body>
@@ -108,23 +123,52 @@
 
   <section>
     <h2>Hình ảnh hoạt động</h2>
-   <P>*VPPS – Việt Phục Phòng Sự là một tổ chức mô phỏng quân sự chuyên nghiệp, hoạt động trên nền tảng trực tuyến. Với khẩu hiệu “Kỷ luật – Chính quy – Tinh nhuệ – Phụng sự Tổ quốc”, VPPS ra đời nhằm xây dựng một môi trường huấn luyện nghiêm túc, tạo điều kiện cho các thành viên rèn luyện tư duy chiến thuật, tinh thần đồng đội và phẩm chất của một người lính thực thụ trong môi trường mô phỏng.<P>
+    <p>*VPPS – Việt Phục Phòng Sự là một tổ chức mô phỏng quân sự chuyên nghiệp, hoạt động trên nền tảng trực tuyến. Với khẩu hiệu “Kỷ luật – Chính quy – Tinh nhuệ – Phụng sự Tổ quốc”, VPPS ra đời nhằm xây dựng một môi trường huấn luyện nghiêm túc, tạo điều kiện cho các thành viên rèn luyện tư duy chiến thuật, tinh thần đồng đội và phẩm chất của một người lính thực thụ trong môi trường mô phỏng.</p>
+    
     <h2>Cơ Cấu Tổ Chức</h2>
-   <ul>
-    <li><strong>K01 - Bộ Tư lệnh Cảnh Vệ</strong>Trung Tâm Chỉ Huy Toàn Lực Lượng.</li>
-    <li><strong>K02 - Bộ Tư Lệnh Cảnh Sát Cơ Động</strong>Phụ Trách Đào Đạo Huấn Luyện Chiến Sĩ Đặc Biệt.</li>
-    <li><strong>ANND- An Ninh Nhân Dân </strong>Giữ Kỷ Luật, Bảo Mật Nội Bộ.</li>
-    <li><strong>Các Đơn Vị Thuộc Chuyên Môn Khác</strong>Trinh Sát,Huấn Luyện,Tình Báo.</li>
+    <ul>
+      <li><strong>K01 - Bộ Tư lệnh Cảnh Vệ:</strong> Trung Tâm Chỉ Huy Toàn Lực Lượng.</li>
+      <li><strong>K02 - Bộ Tư Lệnh Cảnh Sát Cơ Động:</strong> Phụ Trách Đào Đạo Huấn Luyện Chiến Sĩ Đặc Biệt.</li>
+      <li><strong>ANND - An Ninh Nhân Dân:</strong> Giữ Kỷ Luật, Bảo Mật Nội Bộ.</li>
+      <li><strong>Các Đơn Vị Thuộc Chuyên Môn Khác:</strong> Trinh Sát, Huấn Luyện, Tình Báo.</li>
+    </ul>
+
     <h2>Tuyên Ngôn Hành động</h2>
     <li><strong>"KHÔNG NGỪNG RÈN LUYỆN - KHÔNG NGỪNG KỶ LUẬT - KHÔNG NGỪNG PHỤNG SỰ"</strong></li>
-    <h2>Tham Gia Nhóm Discord</h2>
-    <a href=" https://discord.gg/5ưZExMMBya" target="_blank">Tham Gia Discord</a>
 
+    <h2>Tham Gia Nhóm Discord</h2>
+    <a href="https://discord.gg/5ưZExMMBya" target="_blank">Tham Gia Discord</a>
   </section>
 
   <footer>
     Liên hệ: vietnamgsrovn.vn1005@gmail.com | Đây Chỉ Là Một Trang Wed Mô Phỏng Phong Cách Công An<br>
     &copy; 2025 VPPS. Lê Phúc An. (giả lập Roblox)
   </footer>
+
+  <!-- Trình phát nhạc -->
+  <audio id="bgMusic" loop>
+    <source src="https://cdn.pixabay.com/download/audio/2023/03/24/audio_3d542efb7b.mp3?filename=battlefield-14179.mp3" type="audio/mp3">
+    Trình duyệt của bạn không hỗ trợ audio.
+  </audio>
+
+  <!-- Nút bật/tắt nhạc -->
+  <button id="toggleMusic">🔇 Bật Nhạc</button>
+
+  <script>
+    const bgMusic = document.getElementById('bgMusic');
+    const toggleMusic = document.getElementById('toggleMusic');
+    let isPlaying = false;
+
+    toggleMusic.addEventListener('click', () => {
+      if (isPlaying) {
+        bgMusic.pause();
+        toggleMusic.textContent = '🔇 Bật Nhạc';
+      } else {
+        bgMusic.play();
+        toggleMusic.textContent = '🔊 Tắt Nhạc';
+      }
+      isPlaying = !isPlaying;
+    });
+  </script>
 </body>
 </html>
